@@ -23,10 +23,20 @@ public class InvoiceLogic {
     @Resource
     private InvoiceRepositories invoiceRepositories;
 
+    /**
+     * Gets the invoices.
+     *
+     * @return the invoices
+     */
     public List<Invoice> getInvoices() {
         return invoiceRepositories.getInvoiceRepository().findAll();
     }
 
+    /**
+     * Creates the client invoice.
+     *
+     * @param createClientInvoiceModel the create client invoice model
+     */
     public void createClientInvoice(
             @NonNull final CreateClientInvoiceModel createClientInvoiceModel) {
 

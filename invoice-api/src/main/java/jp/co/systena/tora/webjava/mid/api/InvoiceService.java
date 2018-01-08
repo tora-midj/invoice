@@ -31,9 +31,15 @@ public class InvoiceService {
     @Resource
     private InvoiceLogic invoiceLogic;
 
+    /** The response get invoice converter. */
     @Resource
     private ResponseGetInvoiceConverter responseGetInvoiceConverter;
 
+    /**
+     * Gets the invoices.
+     *
+     * @return the invoices
+     */
     public List<ResponseGetInvoice> getInvoices() {
 
         final List<ResponseGetInvoice> responseGetInvoiceList = new ArrayList<ResponseGetInvoice>();
@@ -43,8 +49,14 @@ public class InvoiceService {
         return responseGetInvoiceList;
     }
 
+    /**
+     * Creates the invoices.
+     *
+     * @param requestPostInvoice the request post invoice
+     * @return the response post invoice
+     */
     public ResponsePostInvoice createInvoices(
-            @NonNull RequestPostInvoice requestPostInvoice) {
+            @NonNull final RequestPostInvoice requestPostInvoice) {
 
         invoiceLogic.createClientInvoice(new CreateClientInvoiceModel());
 

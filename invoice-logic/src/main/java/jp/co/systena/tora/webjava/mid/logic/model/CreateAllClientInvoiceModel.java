@@ -1,6 +1,3 @@
-/*
- *
- */
 package jp.co.systena.tora.webjava.mid.logic.model;
 
 import lombok.AllArgsConstructor;

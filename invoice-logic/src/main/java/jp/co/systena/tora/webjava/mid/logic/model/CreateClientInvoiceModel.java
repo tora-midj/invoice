@@ -1,6 +1,3 @@
-/*
- *
- */
 package jp.co.systena.tora.webjava.mid.logic.model;
 
 import lombok.AllArgsConstructor;
@@ -15,7 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CreateClientInvoiceModel extends CreateAllClientInvoiceModel{
+public class CreateClientInvoiceModel extends CreateAllClientInvoiceModel {
 
     /** The client no. */
     @Getter

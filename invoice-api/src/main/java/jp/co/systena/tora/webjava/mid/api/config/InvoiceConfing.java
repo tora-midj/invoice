@@ -64,7 +64,7 @@ public class InvoiceConfing extends WebMvcConfigurerAdapter {
      */
     @Override
     public void extendMessageConverters(
-            List<HttpMessageConverter<?>> converters) {
+            final List<HttpMessageConverter<?>> converters) {
         converters.add(0, mappingJackson2HttpMessageConverter());
     }
 

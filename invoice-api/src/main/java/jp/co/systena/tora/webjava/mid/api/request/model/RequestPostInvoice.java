@@ -1,6 +1,3 @@
-/*
- *
- */
 package jp.co.systena.tora.webjava.mid.api.request.model;
 
 import javax.validation.constraints.NotNull;

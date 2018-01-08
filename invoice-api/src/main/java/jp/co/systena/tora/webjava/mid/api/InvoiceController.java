@@ -29,8 +29,8 @@ public class InvoiceController {
 
     @RequestMapping(path = "/", method = RequestMethod.POST)
     public ResponsePostInvoice postInvoice(
-            @Validated @RequestBody RequestPostInvoice requestPostInvoice,
-            BindingResult result) {
+            @Validated @RequestBody final RequestPostInvoice requestPostInvoice,
+            final BindingResult result) {
 
         return invoiceService.createInvoices(new RequestPostInvoice());
     }

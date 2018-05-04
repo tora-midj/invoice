@@ -11,7 +11,7 @@ public class CsvDataSetLoader extends AbstractDataSetLoader {
     }
 
     @Override
-    protected IDataSet createDataSet(Resource resource) throws Exception {
+    protected IDataSet createDataSet(final Resource resource) throws Exception {
         return new CsvURLDataSet(resource.getURL());
     }
 }

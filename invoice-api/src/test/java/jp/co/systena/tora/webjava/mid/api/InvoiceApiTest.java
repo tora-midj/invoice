@@ -17,7 +17,10 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.TransactionDbUnitTestExecutionListener;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
+import com.github.springtestdbunit.annotation.ExpectedDatabase;
+import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 
 import jp.co.systena.tora.webjava.mid.api.request.model.RequestPostInvoice;
 import jp.co.systena.tora.webjava.mid.api.response.model.ResponseInvoice;
@@ -36,22 +39,23 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class InvoiceApiTest extends InvoiceApiTestBase {
 
-    //    @Test
-    //    @DatabaseSetup(InvoiceApiTestBase.TEST_RESOURCE_PATH_BASE + "case01/input/")
-    //    @ExpectedDatabase(//
-    //            value = InvoiceApiTestBase.TEST_RESOURCE_PATH_BASE + "case01/output/", //
-    //            assertionMode = DatabaseAssertionMode.NON_STRICT) // DatabaseAssertionMode.NON_STRICT で指定したテーブルと列だけを検証
-    //    public void getInvoiceTest() {
-    //        String url = "/api/inovice/";
-    //        ResponseEntity<List<ResponseInvoice>> response = this.testRestTemplate.exchange(url, HttpMethod.GET, null,
-    //                new ParameterizedTypeReference<List<ResponseInvoice>>() {
-    //                });
-    //
-    //        assertEquals(HttpStatus.OK, response.getStatusCode());
-    //
-    //        log.info(response.getBody().toString());
-    //
-    //    }
+    @Test
+    @DatabaseSetup(InvoiceApiTestBase.TEST_RESOURCE_PATH_BASE + "case01/input/")
+    // DatabaseAssertionMode.NON_STRICT：指定したテーブルと列だけを検証
+    @ExpectedDatabase(//
+            value = InvoiceApiTestBase.TEST_RESOURCE_PATH_BASE + "case01/output/", //
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void getInvoiceTest() {
+        String url = "/api/inovice/";
+        ResponseEntity<ResponseInvoice> response = this.testRestTemplate.exchange(url, HttpMethod.GET, null,
+                new ParameterizedTypeReference<ResponseInvoice>() {
+                });
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+
+        log.info(response.getBody().toString());
+
+    }
 
     @Test
     public void postInvoiceTest() {
@@ -70,7 +74,6 @@ public class InvoiceApiTest extends InvoiceApiTestBase {
                 httpEntity,
                 new ParameterizedTypeReference<ResponseInvoice>() {
                 });
-
         assertEquals(HttpStatus.OK, response.getStatusCode());
 
         log.info(response.getBody().toString());

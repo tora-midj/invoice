@@ -10,6 +10,6 @@
         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <context:property-placeholder location="classpath:invoice-dao.properties" />
-    <context:component-scan base-package="jp.co.systena.tora.webjava.mid.dao" />
+    <context:component-scan base-package="jp.co.systena.tora.webjava.mid.entity" />
     <jpa:repositories base-package="jp.co.systena.tora.webjava.mid.dao.repository" />
 </beans>

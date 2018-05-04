@@ -2,10 +2,10 @@ package jp.co.systena.tora.webjava.mid.dao;
 
 import javax.annotation.Resource;
 
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import jp.co.systena.tora.webjava.mid.dao.repository.ClientRepository;
+import jp.co.systena.tora.webjava.mid.dao.repository.DirectSqlRepository;
 import jp.co.systena.tora.webjava.mid.dao.repository.InvoiceRepository;
 import jp.co.systena.tora.webjava.mid.dao.repository.OrderRepository;
 import lombok.Getter;
@@ -29,8 +29,7 @@ public class InvoiceRepositories {
     @Resource
     private OrderRepository orderRepository;
 
-    /** The jdbc template. */
     @Resource
-    private JdbcTemplate jdbcTemplate;
+    private DirectSqlRepository directSqlRepository;
 
 }

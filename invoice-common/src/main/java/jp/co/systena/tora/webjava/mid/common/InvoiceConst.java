@@ -9,5 +9,5 @@ public class InvoiceConst {
 
     }
 
-    public static final double PI = 3.14;
+    public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
 }

@@ -1,0 +1,2 @@
+"order_no","client_no","item_no","item_name","item_type","item_price","item_count","create_datetime","update_datetime","del_flg"
+"100","20001","1","商品A","10","108","2","2018-01-05 19:22:28","2018-01-05 19:23:07","0"

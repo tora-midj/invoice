@@ -2,11 +2,13 @@ package jp.co.systena.tora.webjava.mid.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * The Class InvoiceApplication.
  */
 @SpringBootApplication
+@ComponentScan("jp.co.systena.tora.webjava.mid")
 public class InvoiceApplication {
 
     /**

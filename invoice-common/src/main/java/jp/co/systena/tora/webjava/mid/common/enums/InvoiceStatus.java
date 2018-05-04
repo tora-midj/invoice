@@ -36,13 +36,4 @@ public enum InvoiceStatus {
     public String getCode() {
         return this.code;
     }
-
-    /* (非 Javadoc)
-     * @see java.lang.Enum#toString()
-     */
-    @Override
-    public String toString() {
-        return this.getCode();
-    }
-
 }

@@ -3,11 +3,10 @@ package jp.co.systena.tora.webjava.mid.dao.config;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -21,38 +20,39 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
+@EnableJpaRepositories("jp.co.systena.tora.webjava.mid.dao.repository")
 public class DaoConfiguration {
 
-    /** The datasource url. */
-    @Value("${datasource.url}")
-    private String datasourceUrl;
-
-    /** The datasource username. */
-    @Value("${datasource.username}")
-    private String datasourceUsername;
-
-    /** The datasource password. */
-    @Value("${datasource.password}")
-    private String datasourcePassword;
-
-    /** The datasource driver class name. */
-    @Value("${datasource.driver-class-name}")
-    private String datasourceDriverClassName;
-
-    /**
-     * Data source.
-     *
-     * @return the data source
-     */
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(this.datasourceDriverClassName);
-        dataSource.setUrl(this.datasourceUrl);
-        dataSource.setUsername(this.datasourceUsername);
-        dataSource.setPassword(this.datasourcePassword);
-        return dataSource;
-    }
+    //    /** The datasource url. */
+    //    @Value("${datasource.url}")
+    //    private String datasourceUrl;
+    //
+    //    /** The datasource username. */
+    //    @Value("${datasource.username}")
+    //    private String datasourceUsername;
+    //
+    //    /** The datasource password. */
+    //    @Value("${datasource.password}")
+    //    private String datasourcePassword;
+    //
+    //    /** The datasource driver class name. */
+    //    @Value("${datasource.driver-class-name}")
+    //    private String datasourceDriverClassName;
+    //
+    //    /**
+    //     * Data source.
+    //     *
+    //     * @return the data source
+    //     */
+    //    @Bean
+    //    public DataSource dataSource() {
+    //        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    //        dataSource.setDriverClassName(this.datasourceDriverClassName);
+    //        dataSource.setUrl(this.datasourceUrl);
+    //        dataSource.setUsername(this.datasourceUsername);
+    //        dataSource.setPassword(this.datasourcePassword);
+    //        return dataSource;
+    //    }
 
     /**
      * Jpa vendor adapter.
@@ -74,10 +74,11 @@ public class DaoConfiguration {
      * @return the local container entity manager factory bean
      */
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(jpaVendorAdapter());
-        factory.setDataSource(dataSource());
+        factory.setPackagesToScan("jp.co.systena.tora.webjava.mid.dao.entity");
+        factory.setDataSource(dataSource);
         return factory;
     }
 

@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 
 import jp.co.systena.tora.webjava.mid.common.InvoiceConst;
 import jp.co.systena.tora.webjava.mid.dao.entity.InvoicePriceByClient;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * The Class DirectSqlRepository.
@@ -22,7 +21,6 @@ import lombok.extern.slf4j.Slf4j;
  * @author reo
  */
 @Component
-@Slf4j
 public class DirectSqlRepository {
 
     /** The named parameter jdbc template. */

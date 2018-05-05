@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Sample</title>
+<link href="bootstrap-4.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery読み込み -->
+<script src="jquery/jquery-3.3.1.min.js"></script>
+<!-- BootstrapのJS読み込み -->
+<script src="bootstrap-4.1.1-dist/js/bootstrap.min.js"></script>
+<script>
+	$.getJSON("http://http://ec2-54-200-210-102.us-west-2.compute.amazonaws.com:8081/api/inovice/", null,
+			function(data, status) {
+
+				$.each(data.results, function(index, value) {
+					console.log(value);
+					$("#invoice_table > tbody")//
+							.append($("<tr></tr>")//
+							.append($("<td></td>").text(data.results[index].invoice_no))//
+							.append($("<td></td>").text(data.results[index].invoice_amt))//
+							.append($("<td></td>").text(data.results[index].invoice_title))//
+							.append($("<td></td>").text(data.results[index].create_datetime))//
+							);
+							console.log(data);
+							console.log(status);
+				});
+			});
+</script>
+
+</head>
+<body>
+	<h1>Hello, world!</h1>
+	<div class="container">
+		<div class="table-responsive">
+			<table id="invoice_table" class="table table-striped">
+				<thead>
+					<tr>
+						<th>請求書管理番号</th>
+						<th>請求金額</th>
+						<th>請求書件名</th>
+						<th>作成日時</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

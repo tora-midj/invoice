@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,10 +20,9 @@ import lombok.extern.slf4j.Slf4j;
  */
 @RestController
 @RequestMapping("/api/inovice")
+@CrossOrigin
 @Slf4j
 public class InvoiceController {
-
-    // TODO http://www.bbenson.co/post/spring-validations-with-examples/
 
     /** The invoice service. */
     @Resource
@@ -37,7 +37,6 @@ public class InvoiceController {
     public ResponseInvoice getInvoice() {
         ResponseInvoice rs = new ResponseInvoice();
         rs.getInvoiceResultList().addAll(invoiceService.getInvoices());
-
         return rs;
     }
 
@@ -62,7 +61,6 @@ public class InvoiceController {
 
         ResponseInvoice rs = new ResponseInvoice();
         rs.getInvoiceResultList().add(invoiceService.createInvoices(requestPostInvoice));
-
         return rs;
     }
 }

@@ -16,7 +16,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Getter // リストの参照を更新させてバグとなるのを防ぐため
+@Getter // 参照を更新させてバグとなるのを防ぐため参照のみとする
 public class ResponseInvoice implements Responce {
 
     /** The errors. */
@@ -27,8 +27,4 @@ public class ResponseInvoice implements Responce {
     @JsonProperty("results")
     private List<InvoiceResult> invoiceResultList = new ArrayList<InvoiceResult>();
 
-    public void clearAllList() {
-        this.invoiceErrorList.clear();
-        this.invoiceResultList.clear();
-    }
 }

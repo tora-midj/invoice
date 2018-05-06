@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * The Class GetInvoice.
+ * The Class RequestPostInvoice.
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class RequestPostInvoice {
+public class RequestPostInvoice implements Request {
 
     /** The client no. */
     @NotNull

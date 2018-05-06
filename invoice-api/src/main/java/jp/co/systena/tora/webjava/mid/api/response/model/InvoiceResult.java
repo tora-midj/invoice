@@ -5,9 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-/**
- * The Class GetInvoice.
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

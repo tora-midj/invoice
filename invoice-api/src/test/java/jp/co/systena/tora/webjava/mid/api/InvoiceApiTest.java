@@ -1,7 +1,8 @@
 package jp.co.systena.tora.webjava.mid.api;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,6 +38,7 @@ import lombok.extern.slf4j.Slf4j;
 @DbUnitConfiguration(dataSetLoader = CsvDataSetLoader.class // ここでCSVでデータ読み込むReplacementDataSetLoaderのクラスを指定
 )
 @Slf4j
+@Ignore
 public class InvoiceApiTest extends InvoiceApiTestBase {
 
     @Test

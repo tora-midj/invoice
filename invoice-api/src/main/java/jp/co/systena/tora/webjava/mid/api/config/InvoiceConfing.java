@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.MappedInterceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,7 +18,7 @@ import jp.co.systena.tora.webjava.mid.api.interceptor.InvoiceRequestInterceptor;
  * The Class InvoiceConfing.
  */
 @Configuration
-public class InvoiceConfing extends WebMvcConfigurerAdapter {
+public class InvoiceConfing {// extends WebMvcConfigurerAdapter {
 
     /**
      * Invoice request interceptor.
@@ -62,7 +61,6 @@ public class InvoiceConfing extends WebMvcConfigurerAdapter {
     /* (非 Javadoc)
      * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter#extendMessageConverters(java.util.List)
      */
-    @Override
     public void extendMessageConverters(
             final List<HttpMessageConverter<?>> converters) {
         converters.add(0, mappingJackson2HttpMessageConverter());

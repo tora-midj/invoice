@@ -39,21 +39,41 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <executable>true</executable>
-                    <mode>service</mode>
+                    <executable>${etc.executable}</executable>
                     <embeddedLaunchScriptProperties>
-                        <pidFolder>/pid</pidFolder>
-                        <logFolder>/logs</logFolder>
+                        <mode>service</mode>
+                        <!-- <logFolder>/usr/local/books/${deploy.target}/${project.artifactId}/logs/${project.artifactId}</logFolder> -->
+                        <!-- <logFilename>${project.artifactId}.log</logFilename> -->
+                        <!-- <pidFolder>/usr/local/books/${deploy.target}/${project.artifactId}/run</pidFolder> -->
+                        <!-- <pidFilename>${project.artifactId}.pid</pidFilename> -->
+
+                        <logFolder>/home/ec2-user/tora-midj-jenkins-workspace/invoice-api/target/logs</logFolder>
+                        <logFilename>${project.artifactId}.log</logFilename>
+                        <pidFolder>/home/ec2-user/tora-midj-jenkins-workspace/invoice-api/target/run</pidFolder>
+                        <pidFilename>${project.artifactId}.pid</pidFilename>
                     </embeddedLaunchScriptProperties>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
+
+            <!-- <plugin> -->
+            <!-- <groupId>org.springframework.boot</groupId> -->
+            <!-- <artifactId>spring-boot-maven-plugin</artifactId> -->
+            <!-- <configuration> -->
+            <!-- <executable>true</executable> -->
+            <!-- <mode>service</mode> -->
+            <!-- <embeddedLaunchScriptProperties> -->
+            <!-- <pidFolder>/pid</pidFolder> -->
+            <!-- <logFolder>/logs</logFolder> -->
+            <!-- </embeddedLaunchScriptProperties> -->
+            <!-- </configuration> -->
+            <!-- <executions> -->
+            <!-- <execution> -->
+            <!-- <goals> -->
+            <!-- <goal>repackage</goal> -->
+            <!-- </goals> -->
+            <!-- </execution> -->
+            <!-- </executions> -->
+            <!-- </plugin> -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>

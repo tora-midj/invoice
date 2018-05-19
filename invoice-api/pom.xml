@@ -39,7 +39,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <executable>${etc.executable}</executable>
+                    <executable>true</executable>
                     <embeddedLaunchScriptProperties>
                         <mode>service</mode>
                         <!-- <logFolder>/usr/local/books/${deploy.target}/${project.artifactId}/logs/${project.artifactId}</logFolder> -->
@@ -47,9 +47,9 @@
                         <!-- <pidFolder>/usr/local/books/${deploy.target}/${project.artifactId}/run</pidFolder> -->
                         <!-- <pidFilename>${project.artifactId}.pid</pidFilename> -->
 
-                        <logFolder>/home/ec2-user/tora-midj-jenkins-workspace/invoice-api/target/logs</logFolder>
+                        <logFolder>logs</logFolder>
                         <logFilename>${project.artifactId}.log</logFilename>
-                        <pidFolder>/home/ec2-user/tora-midj-jenkins-workspace/invoice-api/target/run</pidFolder>
+                        <pidFolder>run</pidFolder>
                         <pidFilename>${project.artifactId}.pid</pidFilename>
                     </embeddedLaunchScriptProperties>
                 </configuration>
